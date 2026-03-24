@@ -1,0 +1,161 @@
+* {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
+}
+
+body {
+     background-color: #17202a;
+}
+
+html {
+     font-family: "Urbanist", sans-serif;
+     font-size: 62.8%;
+     font-weight: 100;
+}
+
+
+
+.Toastify__toast,
+p,
+a,
+li,
+input {
+     font-size: 1.6rem;
+     letter-spacing: 0.12rem;
+     line-height: 1.5;
+     color: #fff;
+}
+
+button {
+     padding: 0.8rem 3.2rem;
+     border-radius: 0.3rem;
+     cursor: pointer;
+     border: 0;
+     background-color: hsl(160, 80%, 40%);
+     box-shadow: rgb(0 0 0 / 5%) 0 0 08px;
+     letter-spacing: 1.5px;
+     text-transform: uppercase;
+     font-size: 15px;
+     transition: all 0.5s ease;
+}
+
+button:hover {
+     background-color: hsl(160, 80, 48%);
+     color: hsl(0, 0%, 100%);
+     box-shadow: rgb(9, 172, 115) 0px 7px 19px 0px;
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+.main-section {
+     width: 100%;
+     height: auto;
+     display: flex;
+     padding-top: 1.5rem;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+}
+
+.section-posts {
+     width: 90%;
+
+
+
+     & ol {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 3.2rem;
+          counter-reset: post-counter;
+
+          & li {
+               display: flex;
+               flex-direction: column;
+               justify-content: space-between;
+               background-color: #212f3c;
+               padding: 1.6rem 1.6rem 1.6rem 3.2rem;
+               /* leave space for number */
+               border-radius: 0.3rem;
+               border-left: 0.2rem solid #fff;
+               position: relative;
+               /* for numbering */
+               list-style: none;
+               /* remove default list-style */
+               counter-increment: post-counter;
+               /* increment for each li */
+
+               &::before {
+                    content: counter(post-counter) ".";
+                    position: absolute;
+                    left: 1rem;
+                    /* adjust position */
+                    top: 0.2rem;
+                    /* align with content */
+                    font-size: 1.2rem;
+                    color: hsl(160, 80%, 50%);
+                    font-weight: bold;
+               }
+
+               & .btn-delete {
+                    margin-left: 1.2rem;
+                    background-color: #e74c3c;
+
+                    & :hover {
+                         color: hsl(0, 0%, 100%);
+                         box-shadow: rgb(167, 54, 13) 0px 17px 90px 0px;
+                    }
+               }
+          }
+     }
+}
+
+.section-form {
+     padding: 1.6rem;
+     background-color: #212f3d;
+     border-radius: 0.6rem;
+     margin: 3.2rem auto;
+
+     form {
+          display: flex;
+          gap: 1.2rem;
+     }
+
+     & input {
+          width: 24rem;
+          color: #212f3d;
+          border: 0.1rem solid gray;
+          outline: none;
+          border-radius: 0.3rem;
+          padding: 0.8rem 1.2rem;
+     }
+}
+
+/* --------------------------------------------------------------------------------------- */
+
+
+@media (max-width:980px) {
+     .section-posts ol {
+          grid-template-columns: repeat(2, 1fr);
+     }
+}
+
+@media (max-width:768.98px) {
+     .section-posts ol li .btn {
+          width: 100%;
+     }
+
+     .section-posts ol li .btn-delete {
+          margin-left: 0rem;
+          margin-top: 1rem;
+     }
+
+
+
+}
+
+@media (max-width:739.98px) {
+     .section-posts div button {
+          width: 100%;
+     }
+}
