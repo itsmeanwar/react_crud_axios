@@ -1,12 +1,99 @@
-# React + Vite
+# 🚀 React CRUD App (Axios)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fully functional **CRUD (Create, Read, Update, Delete)** application built using **React.js**, **Axios**, and modern UI practices.
+This project demonstrates real-world frontend development skills including API integration, state management, and responsive design.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🔗 Live Demo
 
-## Expanding the ESLint configuration
+👉 https://your-vercel-link.vercel.app
 
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📌 Features
+
+* ✅ Fetch and display posts from API
+* ✅ Add new post
+* ✅ Edit existing post
+* ✅ Delete post
+* ✅ Real-time UI update without reload
+* ✅ Toast notifications for actions
+* ✅ Smooth scroll to edit form
+* ✅ Fully responsive (Mobile + Tablet + Desktop)
+* ✅ Clean and modern UI/UX
+
+---
+
+## 🛠️ Tech Stack
+
+* ⚛️ React.js (Hooks)
+* 🌐 Axios (API calls)
+* 🎨 CSS3 (Responsive + Animations)
+* 🔔 React Toastify
+* ⚡ Vite (Build tool)
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+ ├── components/
+ │    ├── Form.jsx
+ │    ├── Posts.jsx
+ ├── api/
+ │    ├── server.js
+ ├── App.jsx
+ ├── main.jsx
+```
+
+---
+
+## ⚙️ Installation & Setup
+
+```bash
+git clone https://github.com/itsmeanwar/react_crud_axios.git
+cd react_crud_axios
+npm install
+npm run dev
+```
+
+---
+
+## 🌍 API Used
+
+* https://jsonplaceholder.typicode.com/posts
+
+---
+
+## 🎯 What I Learned
+
+* Handling CRUD operations using REST APIs
+* Managing state efficiently in React
+* Conditional rendering (Add vs Edit mode)
+* Optimizing user experience with smooth scrolling
+* Writing clean and reusable components
+
+---
+
+## 📸 Screenshots
+
+<img width="1345" height="640" alt="image" src="https://github.com/user-attachments/assets/599928c8-35ff-4c68-8fdb-1b60bf3175be" />
+
+
+---
+
+## 👨‍💻 Author
+
+**Shaik Anwar Basha**
+Frontend Developer (React.js)
+
+* GitHub: https://github.com/itsmeanwar
+* LinkedIn: https://www.linkedin.com/in/anwarbasha-shaik-reactjs-frontend-developer/
+
+---
+
+## ⭐ If you like this project
+
+Give it a ⭐ on GitHub!
