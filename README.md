@@ -7,7 +7,7 @@ This project demonstrates real-world frontend development skills including API i
 
 ## 🔗 Live Demo
 
-👉 https://apiaxiosreact.netlify.app/
+👉 <a href:"https://apiaxiosreact.netlify.app/" target="_blank"></a>https://apiaxiosreact.netlify.app/
 
 ---
 
