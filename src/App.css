@@ -279,3 +279,18 @@ button:hover {
     margin-left: 0;
   }
 }
+
+/* ------------------------------------------------------
+   DISABLED BUTTON FIX (IMPORTANT)
+------------------------------------------------------- */
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed !important;
+  pointer-events: none;
+  box-shadow: none;
+}
+
+button:disabled:hover {
+  background-color: hsl(160, 80%, 40%);
+  box-shadow: none;
+}

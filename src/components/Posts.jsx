@@ -1,4 +1,11 @@
-// Component responsible for fetching, displaying, and managing posts (CRUD)
+// ------------------------------------------------------
+// Posts Component
+// Handles:
+// 1. Fetching posts
+// 2. Displaying posts
+// 3. Edit & Delete actions
+// 4. Disable buttons during edit mode
+// ------------------------------------------------------
 
 import React, { useEffect, useState } from "react";
 import { deletePosts, getPosts } from "../api/server";
@@ -6,53 +13,59 @@ import { toast } from "react-toastify";
 import Form from "./Form";
 
 const Posts = () => {
-  // State to store all posts fetched from API
+  // Store posts
   const [posts, setPosts] = useState([]);
 
-  // State to store post data when editing
+  // Store selected post for editing
   const [updateData, setUpdateData] = useState({});
 
+  // Detect edit mode
+  const isEditing = Object.keys(updateData).length !== 0;
+
+  // ------------------------------------------------------
   // Fetch posts from API
+  // ------------------------------------------------------
   const getPostsData = async () => {
     try {
       const res = await getPosts();
-      setPosts(res.data); // Update state with API response
+      setPosts(res.data);
     } catch (error) {
-      toast.error(error.message); // Show error if fetch fails
+      toast.error(error.message);
     }
   };
 
-  // Fetch posts on component mount
   useEffect(() => {
     getPostsData();
   }, []);
 
-  // Handle delete post by ID
+  // ------------------------------------------------------
+  // Delete post
+  // ------------------------------------------------------
   const handleDelete = async (id) => {
     try {
       const res = await deletePosts(id);
 
       if (res.status === 200) {
-        // Update state to remove deleted post from UI
         setPosts((prev) => prev.filter((post) => post.id !== id));
         toast.success("Successfully Deleted");
       } else {
-        toast.error(`Status: ${res.status}, Failed to delete`);
+        toast.error("Failed to delete");
       }
     } catch (error) {
-      console.error(error.message);
-      toast.error("Something went wrong while deleting");
+      toast.error("Something went wrong");
     }
   };
 
-  // Handle edit: populate form with selected post data
-  const handleEdit = (currElm) => {
-    setUpdateData(currElm);
+  // ------------------------------------------------------
+  // Enable edit mode
+  // ------------------------------------------------------
+  const handleEdit = (post) => {
+    setUpdateData(post);
   };
 
   return (
     <>
-      {/* Form for adding or editing posts */}
+      {/* Form Section */}
       <section className="section-form">
         <Form
           setPosts={setPosts}
@@ -61,23 +74,30 @@ const Posts = () => {
         />
       </section>
 
-      {/* Display list of posts */}
+      {/* Posts List */}
       <section className="section-posts">
         <ol>
-          {posts.map((currElm) => {
-            const { id, title, body } = currElm;
+          {posts.map((post) => {
+            const { id, title, body } = post;
+
             return (
               <li key={id}>
-                {/* Post content */}
                 <p>Title: {title}</p>
                 <p>Body: {body}</p>
 
-                {/* Action buttons */}
+                {/* Action Buttons */}
                 <div>
-                  <button onClick={() => handleEdit(currElm)}>Edit</button>
+                  <button
+                    onClick={() => handleEdit(post)}
+                    disabled={isEditing}
+                  >
+                    Edit
+                  </button>
+
                   <button
                     className="btn-delete"
                     onClick={() => handleDelete(id)}
+                    disabled={isEditing}
                   >
                     Delete
                   </button>
