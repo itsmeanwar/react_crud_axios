@@ -1,5 +1,3 @@
-// Axios instance configuration and API service methods
-
 import axios from "axios";
 
 // Create reusable axios instance with base URL
@@ -20,4 +18,9 @@ export const deletePosts = (id) => {
 // Create new post
 export const postData = (payload) => {
   return api.post("/posts", payload);
+};
+
+// Update existing post by ID
+export const updatePosts = (id, post) => {
+  return api.put(`/posts/${id}`, post);
 };
