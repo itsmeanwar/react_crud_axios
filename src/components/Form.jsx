@@ -91,14 +91,21 @@ const Form = ({ setPosts, updateData, setUpdateData }) => {
   };
 
   // Handle form submission (Add or Edit based on mode)
-  const handleForm = (e) => {
-    e.preventDefault();
-    if (isEmpty) {
-      postNewData(); // Add new post
-    } else {
-      updatePostsData(); // Update existing post
-    }
-  };
+ const handleForm = (e) => {
+  e.preventDefault();
+
+  // ✅ Validation
+  if (!addData.title.trim() || !addData.body.trim()) {
+    toast.error("Please fill all fields");
+    return;
+  }
+
+  if (isEmpty) {
+    postNewData();
+  } else {
+    updatePostsData();
+  }
+};
 
   return (
     <form onSubmit={handleForm} ref={formRef}>
