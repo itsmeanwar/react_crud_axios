@@ -7,7 +7,7 @@ This project demonstrates real-world frontend development skills including API i
 
 ## 🔗 Live Demo
 
-👉 https://your-vercel-link.vercel.app
+👉 https://apiaxiosreact.netlify.app/
 
 ---
 
